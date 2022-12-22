@@ -18,8 +18,8 @@ const Home = (props) => (
               <Image
                 key={product.image}
                 src={product.image}
-                width={180}
-                height={180}
+                width={200}
+                height={200}
                 alt=""
                 style={{ objectFit: "contain" }}
               />
@@ -90,10 +90,6 @@ const card = css`
   padding: 16px;
   background: #ffff;
   border-radius: 1rem;
-
-  ${MediaQuery["md"]} {
-    min-width: 280px;
-  }
 
   ${MediaQuery["lg"]} {
     max-width: 300px;
