@@ -1,9 +1,13 @@
 type breakpointsType = {
-  id: "md" | "sm";
+  id: "lg" | "md" | "sm";
   breakpoint: number;
 }[];
 
 const breakpoints: breakpointsType = [
+  {
+    id: "lg",
+    breakpoint: 992,
+  },
   {
     id: "md",
     breakpoint: 768,

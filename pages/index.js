@@ -57,7 +57,11 @@ const container = css`
 
   ${MediaQuery["md"]} {
     flex-direction: row;
-    gap: 40px;
+    gap: 16px;
+  }
+
+  ${MediaQuery["lg"]} {
+    gap: 56px;
   }
 `;
 
@@ -69,6 +73,7 @@ const products = css`
   margin-top: 32px;
 
   ${MediaQuery["md"]} {
+    gap: 24px;
     flex-direction: row;
   }
 `;
@@ -80,11 +85,19 @@ const card = css`
   justify-content: space-around;
   gap: 8px;
   width: 100%;
-  min-width: 260px;
+  min-width: 280px;
   min-height: 360px;
   padding: 16px;
   background: #ffff;
   border-radius: 1rem;
+
+  ${MediaQuery["md"]} {
+    min-width: 280px;
+  }
+
+  ${MediaQuery["lg"]} {
+    max-width: 300px;
+  }
 `;
 
 const productInfo = css`
@@ -92,7 +105,6 @@ const productInfo = css`
   flex-direction: column;
   gap: 8px;
 
-  & h4,
   & span {
     font-size: 0.9rem;
   }
