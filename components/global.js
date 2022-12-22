@@ -10,7 +10,7 @@ export const global = css`
 
   body {
     color: #333333;
-    background-color: #dedede;
+    background-color: #ffff;
     font-size: 100%;
     height: 100vh;
     text-size-adjust: 100%;
