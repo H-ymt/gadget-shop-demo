@@ -17,10 +17,10 @@ const Home = (props) => (
               <Image
                 key={product.image}
                 src={product.image}
-                width={240}
-                height={140}
+                width={180}
+                height={200}
                 alt=""
-                style={{ objectFit: "contain", borderRadius: "0.6rem", maxHeight: "140" }}
+                style={{ objectFit: "contain", maxHeight: "140" }}
               />
               <div css={productInfo}>
                 <h4 css={{ marginTop: "16px" }}>{product.name}</h4>
@@ -54,18 +54,11 @@ const container = css`
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   text-align: center;
-
-  ${MediaQuery["md"]} {
-    gap: 16px;
-  }
-
-  ${MediaQuery["lg"]} {
-    gap: 56px;
-  }
 `;
 
 const products = css`
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 32px;
@@ -83,17 +76,25 @@ const card = css`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
+  width: 70%;
   min-width: 280px;
   min-height: 300px;
-  padding: 8px;
+  padding: 16px;
   background: #262627;
   border: 1px solid #333;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
+
+  & img {
+    width: 240px;
+    height: 180px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   ${MediaQuery["md"]} {
     min-width: unset;
-    width: calc((100% - 80px) / 3);
+    max-width: 380px;
+    width: calc((100% - 56px) / 2);
     padding: 16px;
   }
 `;
