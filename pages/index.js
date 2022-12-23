@@ -36,7 +36,9 @@ const Home = (props) => (
 );
 
 Home.getInitialProps = async function () {
-  const res = await fetch("http://my-json-server.typicode.com/wrongakram/demo/products");
+  const res = await fetch(
+    "http://my-json-server.typicode.com/Handai-Yamato/gadget-shop-db/products"
+  );
   const data = await res.json();
   return {
     products: data,
