@@ -18,8 +18,8 @@ const Home = (props) => (
               <Image
                 key={product.image}
                 src={product.image}
-                width={200}
-                height={200}
+                width={120}
+                height={120}
                 alt=""
                 style={{ objectFit: "contain" }}
               />
@@ -52,7 +52,7 @@ const container = css`
   align-items: center;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
-  height: 100vh;
+  height: 100dvh;
   max-width: 1540px;
   text-align: center;
   background-color: #dedede;
@@ -88,7 +88,7 @@ const card = css`
   gap: 8px;
   width: 100%;
   min-width: 280px;
-  min-height: 360px;
+  min-height: 200px;
   padding: 16px;
   background: #ffff;
   border-radius: 1rem;

@@ -17,4 +17,5 @@ const main = css`
   align-items: center;
   justify-content: center;
   padding: 16px;
+  background-color: #dedede;
 `;
