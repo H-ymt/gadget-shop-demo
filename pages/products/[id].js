@@ -3,13 +3,14 @@ import Link from "next/link";
 import { MediaQuery } from "../../components/mediaquery";
 import { css } from "@emotion/react";
 import Layout from "../../components/article";
+import Image from "next/image";
 
 const Product = (props) => (
   <Layout>
     <div className="fullscreen">
       <div css={container} className="product">
         <div css={img}>
-          <img key={props.product.image} src={props.product.image} />
+          <Image key={props.product.image} src={props.product.image} width={400} height={400} />
         </div>
         <div css={details}>
           <div css={detailsInner}>
@@ -25,10 +26,7 @@ const Product = (props) => (
               {props.product.name}
             </h1>
             <p css={{ marginTop: "16px" }}>{props.product.details}</p>
-            <div css={{ marginTop: "16px" }}>
-              <span>Soy Free</span>
-              <span>Gluten Free</span>
-            </div>
+
             <div css={qtyPrice}>
               <div css={qty} className="qty">
                 <div css={[qtyButton, minus]}>-</div>
@@ -54,7 +52,9 @@ const Product = (props) => (
 
 Product.getInitialProps = async function (context) {
   const { id } = context.query;
-  const res = await fetch(`http://my-json-server.typicode.com/wrongakram/demo/products/${id}`);
+  const res = await fetch(
+    `http://my-json-server.typicode.com/Handai-Yamato/gadget-shop-db/products/${id}`
+  );
   const product = await res.json();
   return { product };
 };
@@ -84,11 +84,11 @@ const img = css`
   align-items: center;
   justify-content: center;
   padding-top: 16px;
-  padding-bottom: 16px;
-  background-color: #dedede;
+  background-color: #272626;
 
   img {
-    max-width: 45vw;
+    max-width: 65vw;
+    border-radius: 1rem;
   }
 
   ${MediaQuery["md"]} {
