@@ -1,4 +1,3 @@
-// import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import { MediaQuery } from "../../components/mediaquery";
 import { css } from "@emotion/react";
@@ -9,7 +8,13 @@ const Product = (props) => (
     <div className="fullscreen">
       <div css={container} className="product">
         <div css={img}>
-          <Image key={props.product.image} src={props.product.image} width={400} height={400} />
+          <Image
+            alt=""
+            key={props.product.image}
+            src={props.product.image}
+            width={400}
+            height={400}
+          />
         </div>
         <div css={details}>
           <div css={detailsInner}>
@@ -81,7 +86,7 @@ const img = css`
   align-items: center;
   justify-content: center;
   padding-top: 16px;
-  background-color: #eae2e2;
+  background-color: #c9bebe82;
 
   img {
     max-width: 65vw;

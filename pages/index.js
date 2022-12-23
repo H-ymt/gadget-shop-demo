@@ -80,8 +80,7 @@ const card = css`
   min-width: 280px;
   min-height: 300px;
   padding: 16px;
-  background: #262627;
-  border: 1px solid #333;
+  background: #c9bebe82;
   border-radius: 0.4rem;
 
   & img {
@@ -103,7 +102,6 @@ const productInfo = css`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #ffffffeb;
 
   & span {
     font-size: 0.9rem;
