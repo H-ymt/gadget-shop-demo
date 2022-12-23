@@ -1,55 +1,103 @@
 import Link from "next/link";
 import { MediaQuery } from "../../components/mediaquery";
 import { css } from "@emotion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
+const easing = [0.6, -0.05, 0.01, 0.99];
+
+const fadeInUp = {
+  hidden: {
+    y: 60,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+const stagger = {
+  init: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
 const Product = (props) => (
-  <div>
+  <motion.div exit={{ opacity: 0 }} variants={fadeInUp} initial="hidden" animate="visible">
     <div className="fullscreen">
       <div css={container} className="product">
         <div css={img}>
-          <Image
-            alt=""
-            key={props.product.image}
-            src={props.product.image}
-            width={400}
-            height={400}
-          />
+          <motion.div initial={{ x: 200, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+            <Image
+              alt=""
+              key={props.product.image}
+              src={props.product.image}
+              transition={{ delay: 0.3 }}
+              width={400}
+              height={400}
+            />
+          </motion.div>
         </div>
         <div css={details}>
-          <div css={detailsInner}>
+          <motion.div variants={stagger} initial="init" animate="show" css={detailsInner}>
             <Link href="/">
-              <div>
+              <motion.div variants={fadeInUp} initial="hidden" animate="visible">
                 <div className="go-back">Back to products</div>
-              </div>
+              </motion.div>
             </Link>
 
-            <h1 css={{ marginTop: "16px", fontSize: "18px", fontWeight: "700" }}>
+            <motion.h1
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              css={{ marginTop: "16px", fontSize: "18px", fontWeight: "700" }}
+            >
               {props.product.name}
-            </h1>
-            <p css={{ marginTop: "16px" }}>{props.product.details}</p>
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              css={{ marginTop: "16px" }}
+            >
+              {props.product.details}
+            </motion.p>
 
-            <div css={qtyPrice}>
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible" css={qtyPrice}>
               <div css={qty} className="qty">
                 <div css={[qtyButton, minus]}>-</div>
                 <div>1</div>
                 <div css={[qtyButton, add]}>+</div>
               </div>
               <span className="price">{props.product.price}</span>
-            </div>
-            <div css={{ display: "flex", flexWrap: "wrap", marginTop: "16px" }}>
+            </motion.div>
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              css={{ display: "flex", flexWrap: "wrap", marginTop: "16px" }}
+            >
               <button css={[button, addCart]} className="add-to-cart">
                 Add to cart
               </button>
               <button css={[button, subscribe]} className="subscribe">
                 Subscribe
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 Product.getInitialProps = async function (context) {
