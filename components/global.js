@@ -12,9 +12,10 @@ export const global = css`
     color: #333333;
     background-color: #ffff;
     font-size: 100%;
-    height: 100vh;
     text-size-adjust: 100%;
     font-feature-settings: "palt";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     box-sizing: border-box;
   }
 

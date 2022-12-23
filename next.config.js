@@ -11,9 +11,9 @@ module.exports = {
       },
       {
         protocol: "https",
-        hostname: "cdn.shopify.com",
+        hostname: "switchandclick.com",
         port: "",
-        pathname: "/s/files/1/2060/6331/products/Vegan.png",
+        pathname: "/wp-content/uploads/2021/01/IMG_6505-1024x683-1.jpg",
       },
     ],
   },

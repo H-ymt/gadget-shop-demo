@@ -19,9 +19,7 @@ const Product = (props) => (
                 <div className="go-back">Back to products</div>
               </div>
             </Link>
-            <div css={{ marginTop: "32px" }}>
-              <span className="category">Protein</span>
-            </div>
+          
             <h1 css={{ marginTop: "16px", fontSize: "18px", fontWeight: "700" }}>
               {props.product.name}
             </h1>
