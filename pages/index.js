@@ -18,8 +18,8 @@ const Home = (props) => (
               <Image
                 key={product.image}
                 src={product.image}
-                width={180}
-                height={180}
+                width={200}
+                height={200}
                 alt=""
                 style={{ objectFit: "contain" }}
               />
@@ -50,10 +50,12 @@ const container = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  height: 100vh;
   max-width: 1540px;
-  margin: 0 auto;
   text-align: center;
+  background-color: #dedede;
 
   ${MediaQuery["md"]} {
     flex-direction: row;
@@ -90,10 +92,6 @@ const card = css`
   padding: 16px;
   background: #ffff;
   border-radius: 1rem;
-
-  ${MediaQuery["md"]} {
-    min-width: 280px;
-  }
 
   ${MediaQuery["lg"]} {
     max-width: 300px;
