@@ -10,8 +10,6 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {children}
-      {/* <Navbar /> */}
-      {/* <Footer/> */}
     </>
   );
 }

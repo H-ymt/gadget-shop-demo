@@ -36,7 +36,7 @@ const Home = (props) => (
   <Layout>
     <motion.div exit={{ opacity: 0 }} css={container}>
       <div className="title">
-        <h2>Select a gadget</h2>
+        <h2 css={{ marginTop: "32px" }}>Select a gadget</h2>
       </div>
       <motion.div variants={stagger} initial="hidden" animate="show" css={products}>
         {props.products.map((product) => (
@@ -114,7 +114,6 @@ const card = css`
   min-width: 280px;
   min-height: 300px;
   padding: 16px;
-  background: #c9bebe82;
   border-radius: 0.4rem;
 
   & img {
