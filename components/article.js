@@ -12,10 +12,8 @@ const Article = ({ children }) => {
 export default Article;
 
 const main = css`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  background-color: #dedede;
+  padding: 32px 16px;
 `;

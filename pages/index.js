@@ -8,23 +8,22 @@ const Home = (props) => (
   <Layout>
     <div css={container}>
       <div className="title">
-        <h2>Select a protein</h2>
+        <h2>Select a gadget</h2>
       </div>
       <div css={products}>
         {props.products.map((product) => (
-          <Link key={product.id} href="/products/[id]" as={`/products/${product.id}`}>
-            <div css={card}>
-              <span className="category">Protein</span>
+          <Link css={card} key={product.id} href="/products/[id]" as={`/products/${product.id}`}>
+            <div>
               <Image
                 key={product.image}
                 src={product.image}
-                width={120}
-                height={120}
+                width={240}
+                height={140}
                 alt=""
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "contain", borderRadius: "0.6rem", maxHeight: "140" }}
               />
               <div css={productInfo}>
-                <h4>{product.name}</h4>
+                <h4 css={{ marginTop: "16px" }}>{product.name}</h4>
                 <span>{product.price}</span>
               </div>
             </div>
@@ -54,13 +53,9 @@ const container = css`
   align-items: center;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
-  height: 100dvh;
-  max-width: 1540px;
   text-align: center;
-  background-color: #dedede;
 
   ${MediaQuery["md"]} {
-    flex-direction: row;
     gap: 16px;
   }
 
@@ -72,13 +67,14 @@ const container = css`
 const products = css`
   display: flex;
   flex-direction: column;
-  align-items: unset;
+  flex-wrap: wrap;
   gap: 32px;
   margin-top: 32px;
 
   ${MediaQuery["md"]} {
-    gap: 24px;
     flex-direction: row;
+    justify-content: center;
+    gap: 24px;
   }
 `;
 
@@ -86,17 +82,19 @@ const card = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  gap: 8px;
+  justify-content: space-evenly;
   width: 100%;
   min-width: 280px;
-  min-height: 200px;
-  padding: 16px;
-  background: #ffff;
-  border-radius: 1rem;
+  min-height: 300px;
+  padding: 8px;
+  background: #262627;
+  border: 1px solid #333;
+  border-radius: 0.2rem;
 
-  ${MediaQuery["lg"]} {
-    max-width: 300px;
+  ${MediaQuery["md"]} {
+    min-width: unset;
+    width: calc((100% - 80px) / 3);
+    padding: 16px;
   }
 `;
 
@@ -104,6 +102,7 @@ const productInfo = css`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: #ffffffeb;
 
   & span {
     font-size: 0.9rem;
