@@ -2,11 +2,10 @@
 import Link from "next/link";
 import { MediaQuery } from "../../components/mediaquery";
 import { css } from "@emotion/react";
-import Layout from "../../components/article";
 import Image from "next/image";
 
 const Product = (props) => (
-  <Layout>
+  <div>
     <div className="fullscreen">
       <div css={container} className="product">
         <div css={img}>
@@ -19,7 +18,7 @@ const Product = (props) => (
                 <div className="go-back">Back to products</div>
               </div>
             </Link>
-          
+
             <h1 css={{ marginTop: "16px", fontSize: "18px", fontWeight: "700" }}>
               {props.product.name}
             </h1>
@@ -45,7 +44,7 @@ const Product = (props) => (
         </div>
       </div>
     </div>
-  </Layout>
+  </div>
 );
 
 Product.getInitialProps = async function (context) {
@@ -82,7 +81,7 @@ const img = css`
   align-items: center;
   justify-content: center;
   padding-top: 16px;
-  background-color: #272626;
+  background-color: #eae2e2;
 
   img {
     max-width: 65vw;
@@ -92,6 +91,7 @@ const img = css`
   ${MediaQuery["md"]} {
     max-width: unset;
     height: 100vh;
+    padding: 16px;
   }
 `;
 
@@ -114,8 +114,9 @@ const details = css`
 const detailsInner = css`
   display: inline-block;
   width: 90%;
-  text-align: left;
+  max-width: 480px;
   padding: 24px;
+  text-align: left;
 `;
 
 const qtyPrice = css`
