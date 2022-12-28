@@ -32,14 +32,14 @@ const stagger = {
   },
 };
 
-const Home = (props) => (
+const Home = ({ products }) => (
   <Layout>
-    <motion.div exit={{ opacity: 0 }} css={container}>
-      <div className="title">
+    <motion.div exit={{ opacity: 0 }}>
+      <div css={title}>
         <h2 css={{ marginTop: "32px" }}>Select a gadget</h2>
       </div>
-      <motion.div variants={stagger} initial="hidden" animate="show" css={products}>
-        {props.products.map((product) => (
+      <motion.div variants={stagger} initial="hidden" animate="show" css={container}>
+        {products.map((product) => (
           <Link css={card} key={product.id} href="/products/[id]" as={`/products/${product.id}`}>
             <motion.div variants={fadeInUp} initial="hidden" animate="visible">
               <motion.div
@@ -68,34 +68,32 @@ const Home = (props) => (
   </Layout>
 );
 
-Home.getInitialProps = async function () {
+export const getStaticProps = async () => {
   const res = await fetch(
     "http://my-json-server.typicode.com/Handai-Yamato/gadget-shop-db/products"
   );
-  const data = await res.json();
+
+  const products = await res.json();
+
   return {
-    products: data,
+    props: {
+      products,
+    },
   };
 };
 
 export default Home;
 
-const container = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  margin: 0 calc(50% - 50vw);
+const title = css`
   text-align: center;
 `;
 
-const products = css`
+const container = css`
   display: flex;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 40px;
   margin-top: 32px;
 
   ${MediaQuery["md"]} {
@@ -112,12 +110,12 @@ const card = css`
   justify-content: space-evenly;
   width: 70%;
   min-width: 280px;
-  min-height: 300px;
-  padding: 16px;
+  min-height: 280px;
   border-radius: 0.4rem;
+  text-align: center;
 
   & img {
-    width: 240px;
+    width: 280px;
     height: 180px;
     margin-right: auto;
     margin-left: auto;
@@ -125,9 +123,8 @@ const card = css`
 
   ${MediaQuery["md"]} {
     min-width: unset;
-    max-width: 380px;
+    max-width: 300px;
     width: calc((100% - 56px) / 2);
-    padding: 16px;
   }
 `;
 
