@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
+    "@netlify/plugin-nextjs": "^4.29.4",
     "@next/font": "13.0.7",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
