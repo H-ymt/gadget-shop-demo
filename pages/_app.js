@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { Global } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 import { global } from "../components/global";
 import { AnimatePresence } from "framer-motion";
 import createEmotionCache from "../libs/createEmotionCache";
+import theme from "../components/theme";
 import Layout from "../components/layout";
 import "modern-css-reset/dist/reset.min.css";
 
@@ -15,12 +18,15 @@ export default function MyApp(props) {
 
   return (
     <CacheProvider value={emotionCache}>
-      <Global styles={global} />
-      <Layout>
-        <AnimatePresence mode="wait">
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Global styles={global} />
+        <Layout>
+          <CssBaseline />
+          <AnimatePresence mode="wait">
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </Layout>
+      </ThemeProvider>
     </CacheProvider>
   );
 }

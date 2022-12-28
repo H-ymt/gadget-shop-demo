@@ -5,6 +5,7 @@ import { css } from "@emotion/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Layout from "../../components/article";
+import { Button } from "@mui/material";
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
