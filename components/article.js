@@ -15,4 +15,7 @@ const main = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
 `;
