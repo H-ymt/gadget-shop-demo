@@ -41,7 +41,13 @@ const Home = ({ products }) => (
       <motion.div variants={stagger} initial="hidden" animate="show" css={container}>
         {products.map((product) => (
           <Link css={card} key={product.id} href="/products/[id]" as={`/products/${product.id}`}>
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+            >
               <motion.div
                 initial={{ x: 60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
