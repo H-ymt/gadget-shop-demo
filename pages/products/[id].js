@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Layout from "../../components/article";
-import { Button } from "@mui/material";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -55,8 +55,25 @@ const Product = ({ product }) => {
             <div css={details}>
               <motion.div variants={stagger} initial="init" animate="show" css={detailsInner}>
                 <Link href="/">
-                  <motion.div variants={fadeInUp} initial="hidden" animate="visible">
-                    <div>Back to products</div>
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    animate="visible"
+                    css={{ position: "relative" }}
+                  >
+                    <FirstPageIcon variants="contained" color="primary" />
+                    <p
+                      css={{
+                        position: "absolute",
+                        top: "41%",
+                        transform: "translateY(-50%)",
+                        left: "24px",
+                        fontSize: "12px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Back to products
+                    </p>
                   </motion.div>
                 </Link>
 
